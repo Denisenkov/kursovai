@@ -1,0 +1,4 @@
+﻿  ConsoleApplication12.cpp
+C:\Users\VVVV\source\repos\ConsoleApplication12\ConsoleApplication12\sss.h(136,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\VVVV\source\repos\ConsoleApplication12\ConsoleApplication12\ConsoleApplication12.cpp(21,13): error C2440: инициализация: невозможно преобразовать "int" в "iach"
+C:\Users\VVVV\source\repos\ConsoleApplication12\ConsoleApplication12\ConsoleApplication12.cpp(21,13): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно

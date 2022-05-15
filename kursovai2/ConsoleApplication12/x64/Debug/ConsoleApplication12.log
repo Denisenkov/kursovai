@@ -1,0 +1,5 @@
+﻿  sss.cpp
+C:\Users\VVVV\source\repos\ConsoleApplication12 (1) (1) (1)\ConsoleApplication12\sss.cpp(19,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\VVVV\source\repos\ConsoleApplication12 (1) (1) (1)\ConsoleApplication12\sss.cpp(107,57): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\VVVV\source\repos\ConsoleApplication12 (1) (1) (1)\ConsoleApplication12\sss.cpp(109,41): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+  ConsoleApplication12.vcxproj -> C:\Users\VVVV\source\repos\ConsoleApplication12 (1) (1) (1)\x64\Debug\ConsoleApplication12.exe
