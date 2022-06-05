@@ -125,12 +125,11 @@ int AnalysisIn(Field &a,string c) {
 void cinShotCoordinates(Field &a) {
 	cout << "Введите координаты удара (например: Г5)\n";
 	bool t = 1;
-	while (t) {
-		
-		
+	while (t) {	
 		string x;
 		cin >> x;
-		
+		cin.clear();
+		while ((getchar()) != '\n');
 		if (x == "ЯУ") {
 			NuclearStrike(a); 
 			t = 0;
@@ -149,7 +148,6 @@ void cinShotCoordinates(Field &a) {
 				cout << "Неверный ввод!\n";
 				break;
 			}
-
 			}
 		}
 	}
@@ -167,5 +165,6 @@ void Game() {
 	}
 	CoutField(a);
 	cout << "Мы победили!\n";
+
 }
 

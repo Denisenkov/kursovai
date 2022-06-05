@@ -1,12 +1,20 @@
 ﻿// ConsoleApplication12.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
+
+
 #include <iostream>
 #include "sss.h"
 using namespace std;
+
+
 int main()
 {
-    Game();
     
+    Game();
+    _CrtDumpMemoryLeaks();
 }
 
 

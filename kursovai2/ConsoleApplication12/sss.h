@@ -9,19 +9,25 @@ class Ship {
 private:
 	int LifeShip;
 	bool ExistenceShip;
-	bool Stroke = 0;
+	bool Stroke;
 public:
 	Ship() {
 		LifeShip = 0;
 		ExistenceShip = 0;
+		Stroke = 0;
 	}
 	Ship(int i) {
 		LifeShip = i;
 		ExistenceShip = i;
+		Stroke = 0;
 	}
 	Ship(const Ship&d) {
 		LifeShip = d.LifeShip;
 		ExistenceShip = d.ExistenceShip;
+		Stroke = d.Stroke;
+	}
+	~Ship() {
+		
 	}
 	bool DoesShipExist() {
 		return ExistenceShip;
@@ -33,7 +39,7 @@ public:
 		LifeShip = LifeShip - 1;
 		if (LifeShip < 0)LifeShip = 0;
 	}
-	void vStroke() {
+	void IsCircled() {
 		Stroke=1;
 	}
 	bool bStroke() {
@@ -42,7 +48,7 @@ public:
 	void CreatShip(int i) {
 		LifeShip = i;
 		ExistenceShip = i;
-	}
+	}																								
 
 };
 
@@ -77,14 +83,14 @@ public:
 	bool bIsCellFired() {
 		return IsCellFired;
 	}
-	void vIsCellFired() {
+	void HitCell() {
 		IsCellFired = 1;
 	}
 	void ShipDamage() {
 		Korabl->ShipDamage();
 	}
-	void vStroke() {
-		Korabl->vStroke();
+	void IsCircled() {
+		Korabl->IsCircled();
 	}
 	bool bStroke() {
 		return Korabl->bStroke();
@@ -122,6 +128,7 @@ private:
 	};	
 public:
 	Field(int ii) {
+		if (ii < 1 || ii>64) { ii = 10; }
 		SizeField = ii;
 		AmountKorabl = 0;
 		MaxSizeKoradl = 0;
@@ -135,6 +142,7 @@ public:
 				x = x + (j + 2) * 3;
 			}
 		}
+		
 		ArrKorabl = new Ship[AmountKorabl];
 		x = 0;
 		for (int j = MaxSizeKoradl; j >= 1; j--) {
@@ -204,19 +212,19 @@ public:
 				b = ArrCell[i][j].IsShipAlive();
 				if (!b&&ArrCell[i][j].DoesShipExist()&& !ArrCell[i][j].bStroke()) {					
 					for (int r = 0; r < 9; r++) {
-						ArrCell[i-1+r%3][j-1+r/3].vIsCellFired();
+						ArrCell[i-1+r%3][j-1+r/3].HitCell();
 					}
 				}
 			}
 		}
 		for (int j = 0; j < AmountKorabl; j++) {
-			if(!ArrKorabl[j].IsShipAlive())ArrKorabl[j].vStroke();
+			if(!ArrKorabl[j].IsShipAlive())ArrKorabl[j].IsCircled();
 		}
 	}
 	int iShootingAtCoordinates( int x, int y) {
 		int i=0;
 		ArrCell[x][y].ShipDamage();
-		ArrCell[x][y].vIsCellFired();
+		ArrCell[x][y].HitCell();
 		if (ArrCell[x][y].DoesShipExist()) if (ArrCell[x][y].IsShipAlive()) { i = 1; }
 		else { i = 2; 
 		CircleDestroyedShip();
